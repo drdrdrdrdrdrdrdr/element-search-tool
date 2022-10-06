@@ -7,11 +7,16 @@ def searchele(kw):
     response = requests.get(url).json()
     for i in response:
         if i.get('symbol') == kw:
-            info += [i['weight'], i['melt'].strip('.'), i['boil'].strip('.'),
-                     i['discover'], str(i['isotopes']), i['electroneg']]
+            info += [i['weight'], i.get('melt', 'N/A').strip('.'), i.get('boil', 'N/A').strip('.'),
+                     i['discover'], str(i['isotopes']), i.get('electroneg', 'N/A')]
             break
     url = 'https://ptable.com/JSON/compounds/formula='+kw
     response = requests.get(url).json()
-    for i in range(1, 4):
-        info += [response['matches'][i]['molecularformula']]
+    count = 0
+    for i in response['matches']:
+        if i['molecularformula'] != kw:
+            info += [i['molecularformula']]
+            count += 1
+            if count == 3:
+                break
     return info
