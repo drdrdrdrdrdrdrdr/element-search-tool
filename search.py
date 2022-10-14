@@ -3,6 +3,7 @@ import re
 
 
 def searchele(kw):
+    # Get the information of the inputted element 'kw'. If 'kw' is not an element, return two 'error'.
     tableinfo = []
     moreinfo = []
     url = 'https://ptable.com/JSON/properties-650220d.json'

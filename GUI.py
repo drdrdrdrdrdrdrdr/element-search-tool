@@ -7,12 +7,14 @@ from search import searchele
 class SearchWindow:
 
     def __init__(self):
+        # Initialize the GUI interface.
         self.ui = QUiLoader().load('searchelement.ui')
         self.ui.button.clicked.connect(self.handle)
         self.ui.lineEdit.returnPressed.connect(self.handle)
         self.ui.table.horizontalHeader().setStretchLastSection(True)
 
     def handle(self):
+        # After the button is pushed, fill out the table and textbrowser.
         element = self.ui.lineEdit.text()
         tableinfo, moreinfo = searchele(element)
         if tableinfo == 'error':
