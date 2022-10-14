@@ -21,10 +21,11 @@ def searchele(kw):
     response = requests.get(url).json()
     count = 0
     for i in response['matches']:
-        a = i['molecularformula'].replace(kw, '')
-        if bool(re.search('[a-zA-Z]', a)):
-            tableinfo += [i['molecularformula']]
-            count += 1
-            if count == 3:
-                break
+        if kw in i['molecularformula']:
+            a = i['molecularformula'].replace(kw, '')
+            if bool(re.search('[a-zA-Z]', a)):
+                tableinfo += [i['molecularformula']]
+                count += 1
+                if count == 5:
+                    break
     return tableinfo, moreinfo

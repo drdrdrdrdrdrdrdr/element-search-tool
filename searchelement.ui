@@ -6,12 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
-    <height>319</height>
+    <width>1086</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>元素查询</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{	
+	font-family:微软雅黑;
+	font-size:15px;
+	color: #1d649c;
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -100,6 +107,12 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton:hover{
+	border:1px solid #1d649c;
+	font-size:17px;
+}</string>
+           </property>
            <property name="text">
             <string>查询</string>
            </property>
@@ -119,7 +132,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
